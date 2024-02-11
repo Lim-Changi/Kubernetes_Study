@@ -46,7 +46,9 @@ Pod는 하나 이상의 컨테이너를 포함하며, 같은 노드에서 실행
 - ...
 
 ![img](https://kubernetes.io/images/docs/components-of-kubernetes.svg) 
-[출처: Kubernetes 공식 문서]
+_[출처: Kubernetes 공식 문서]_
+
+
 ---
 #### K8s 장점
 서비스에 부하가 있을 때, Container Level 에서 같은 서비스(Pod)를 생성하고 Load Balancing 을 하는 과정,
