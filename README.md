@@ -64,6 +64,16 @@ _[출처: Kubernetes 공식 문서]_
 
 
 ---
+#### kubectl
+쿠버네티스 클러스터를 커맨드를 통해 컨트롤하는 툴 (kubernetes cli)
+
+#### minikube
+로컬에 쿠버네티스를 돌리게 해주는 툴
+
+
+
+---
+
 #### 쿠버네티스 User
 * Workloads
   * Pod
