@@ -73,6 +73,50 @@ _[출처: Kubernetes 공식 문서]_
 
 
 ---
+#### etcd
+- Key-Value Pair 를 보관 
+  - Critical, Stateful Data => 인증정보 등,,
+- 데이터가 변경 될 때 Notification 및 백업 복구등의 기능 제공
+- https://etcd.io
+- https://github.com/etcd-io/etcd/releases
+  - run local etcd server
+- 키페어 저장 및 조회
+  - docker exec ~~/etcdctl put key val
+  - docker exec ~~/etcdctl get key
+- **Update to Desired State**
+
+
+
+---
+### K8s API Server
+중앙 요청 관리자
+- etcd 에 접근하기 위해서는 항상 K8s API Server 를 통해서만 가능
+- etcd 에서 Desired Status 변경 감지 후, 전달 역할
+
+
+### K8s Scheduler
+API Server 를 통해 Desired State 의 변경을 전달 받은 후, Pod 을 어떤 Node 에 배치할지 선택하는 역할
+- cpu 가 가장 많이 남는 Node 선택
+
+### Kubelet
+Worker Node 관리자
+- Node Register
+- Pod Creation
+- Monitor node, pod
+
+### Pod
+- K8s 에서 배포 가능한 가장 작은 단위
+  - 즉, Scaling 이 가능한 최소 단위
+- 하나 이상의 컨테이너를 담을 수 있다
+  - 하지만, 밀접하게 연관되어 있는 컨테이너가 아니면 같은 Pod 에 담으면 안된다
+  - 같은 네트워크와 저장공간을 공유
+- Scale Out
+  - 같은 Node 안에 동일한 서비스 Deployment 를 담은 Pod 를 추가한다
+  - 추후, Load Balancing 을 통해 요청 분산
+
+
+
+---
 
 #### 쿠버네티스 User
 * Workloads

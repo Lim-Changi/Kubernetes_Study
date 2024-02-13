@@ -18,9 +18,15 @@ kubectl expose deployment APP_NAME --type=NodePort --port=PORT_NUM
 
 ## All Service Types
 # ClusterIP (기본 형태)
-# NodePort
+# NodePort -> 외부로 Expose 할때 필요
 # LoadBalancer
 # ExternalName
+
+# get default running pod
+kubectl get pod
+# describe pod
+kubectl describe pod/POD_NAME
+
 
 # get all services by name
 kubectl get services APP_NAME

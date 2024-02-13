@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
   - name: nginx
-    image: nginx:1.14.2
+    image: nginx:latest
     ports:
     - containerPort: 80
       name: http-web-svc
@@ -17,11 +17,13 @@ kind: Service
 metadata:
   name: nginx-service
 spec:
-  type: NodePort
+  type: NodePort # 외부로 pod Service 를 Expose 시키기 위함
   selector:
-    app.kubernetes.io/name: proxy
+    app.kubernetes.io/name: proxy # metadata 에서 설정한 label 통해 설정 가능 -> pod 선택
   ports:
   - name: nginx-service-port
     protocol: TCP
     port: 80 # This is the port number which makes a service visible to other services running within the same K8s cluster
-    targetPort: http-web-svc # This port is the port on the POD where the service is running.
+    targetPort: http-web-svc # This port is the port on the POD where the service is running. -> Container 선택
+
+### 최종적으로 Local 에서는 Minikube 을 활용하여 Tunneling 을 해야만 접근이 가능하다.
