@@ -5,6 +5,8 @@ metadata:
 spec:
   containers:
   - name: my-ubuntu
-    image: joonlee0228/ubuntu:24.04
+    image: changi/ubuntu:24.04
+    imagePullPolicy: IfNotPresent
     command: ["echo"] # ENTRYPOINT
-    args: ["Hello, Kubernetes!"] # CMD
+    args: ["Hello, Kubernetes! Its Perfectly Overwritten"] # CMD
+    # 기존 Dockerfile 의 ENTRYPOINT 와 CMD 를 덮고 실행된다

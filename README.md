@@ -114,6 +114,38 @@ Worker Node 관리자
   - 같은 Node 안에 동일한 서비스 Deployment 를 담은 Pod 를 추가한다
   - 추후, Load Balancing 을 통해 요청 분산
 
+---
+#### Docker CMD & ENTRYPOINT
+- CMD
+  - 가장 마지막 커맨드만 실행된다 -> 이전의 커맨드는 Ignore
+- ENTRYPOINT
+  - 명령어에 추가로 Appending 이 가능
+- Using Both
+  - ENTRYPOINT 에 이어 CMD 가 Append 되어 실행
+
+- Docker 파일에 ENTRYPOINT, CMD 가 정의되어 있어도 실행 시, 
+커맨드 라인에서 --entrypoint 옵션을 통해 작성된 값을 Override 할 수 있다. 
+
+- K8s Configuration file (.yml)
+  - command == ENTRYPOINT
+  - args == CMD
+  - 위의 값을 설정하면, 기존 DockerFile 의 ENTRYPOINT 와 CMD 를 무시(Override)하고 설정한 값으로 실행한다.
+
+
+---
+#### K8s Image Pulling
+- K8s 기본세팅에선 Pod Container 이미지를 지정해도, **Docker Hub**에서 Image 를 받아오려 하고, local Docker image를 받지 않는다
+- 이에 따라 설정을 변경 해주어야 함
+  - ```eval $(minikube docker-env)```
+    - 해당 라인을 통해 Local 터미널에서 K8s Cluster 를 컨트롤 하도록 변경한다
+    - 후에 docker Image 를 build 하면, K8s YAML 파일에서 Image 를 정상적으로 읽어올 수 있다
+    - 그래도 안된다면, 아래 YAML 파일에 라인을 추가한다
+  - ```imagePullPolicy: IfNotPresent```
+
+- K8s 공식문서
+  - Note:
+    You should avoid using the :latest tag when deploying containers in production as it is harder to track which version of the image is running and more difficult to roll back properly.
+  - 즉, latest 태그를 쓰지말라는 얘기다.
 
 
 ---

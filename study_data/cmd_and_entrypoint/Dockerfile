@@ -1,22 +1,22 @@
 FROM ubuntu:24.04
 
 ## build
-# docker build -t joonlee0228/ubuntu:24.04 .
-# docker run joonlee0228/ubuntu:24.04
+# docker build -t changi/ubuntu
+# docker run changi/ubuntu
 # docker ps -a | grep ubuntu
 
 # CMD ["echo", "hello"]
 
 ## CMD override
-# docker run joonlee0228/ubuntu:24.04
+# docker run changi/ubuntu
 # hello
-# docker run joonlee0228/ubuntu:24.04 echo world
+# docker run changi/ubuntu echo world
 # world
 
 ## Override ENTRYPOINT
-# docker run joonlee0228/ubuntu:24.04
+# docker run changi/ubuntu
 # hello
-# docker run joonlee0228/ubuntu:24.04 world
+# docker run changi/ubuntu world
 # hello world
 
 
@@ -24,5 +24,5 @@ ENTRYPOINT [ "echo", "hello" ]
 CMD ["world"]
 
 ## ENTRYPOINT & CMD
-# docker run joonlee0228/ubuntu:24.04
+# docker run changi/ubuntu
 # hello world
