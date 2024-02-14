@@ -147,6 +147,17 @@ Worker Node 관리자
     You should avoid using the :latest tag when deploying containers in production as it is harder to track which version of the image is running and more difficult to roll back properly.
   - 즉, latest 태그를 쓰지말라는 얘기다.
 
+---
+#### Label & Selector
+둘 모두 K8s 구성요소를 Identifying 및 Grouping 하기 위함
+- Label
+  - K-V Pair 을 Resource 에 넣을 수 있음
+- Selector
+  - Label 의 K-V Pair 을 활용하여 특정 Resource 를 Filter 및 Select
+
+#### Annotation
+label 과 같은 형태로 Resource 에 넣어줄 수 있지만, 
+이름 그대로 주석의 의미로 해당 Resource 를 설명하는 데에만 쓰이고, 조회되거나 선택의 기준이 되는데에는 활용되지 않는다
 
 ---
 

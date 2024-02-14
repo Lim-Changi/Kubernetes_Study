@@ -10,11 +10,12 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: nginx
+      app: nginx # Label 중에 중에 app: nginx 의 K-V Pair 을 가진 Pod 를 Select
   template:
     metadata:
       labels:
         app: nginx
+        # metadata Label 에 위에서 찾고자 하는 app: nginx Pair 을 넣음으로써, 해당 Pod 가 위 Deployment Resource 에 의해 배포될 것을 의미
     spec:
       containers:
       - name: nginx
