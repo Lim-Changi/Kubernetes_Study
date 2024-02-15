@@ -46,3 +46,9 @@ minikube service APP_NAME # Docker Desktop 에서 확인 가능
 
 # kubectl alias to kube
 alias kube=`kubectl`
+
+
+# ReplicaSet Scaling
+kubectl replace -f replicaset.yml
+kubectl scale --replicas=REPLICA_NUM -f replicaset.yml
+kubectl scale --replicas=REPLICA_NUM rs/REPLICASET_NAME

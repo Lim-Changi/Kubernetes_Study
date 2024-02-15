@@ -3,10 +3,10 @@ kind: ReplicaSet
 metadata:
   name: frontend
   labels:
-    app: guestbook
+    app: study
     tier: frontend
 spec:
-  replicas: 4
+  replicas: 2
   selector:
     matchLabels:
       tier: frontend
@@ -16,5 +16,5 @@ spec:
         tier: frontend
     spec:
       containers:
-      - name: php-redis
-        image: gcr.io/google_samples/gb-frontend:v3
+      - name: frontend-sample
+        image: okteto/frontend:372d863d6

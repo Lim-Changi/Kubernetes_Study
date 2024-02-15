@@ -160,6 +160,23 @@ label 과 같은 형태로 Resource 에 넣어줄 수 있지만,
 이름 그대로 주석의 의미로 해당 Resource 를 설명하는 데에만 쓰이고, 조회되거나 선택의 기준이 되는데에는 활용되지 않는다
 
 ---
+#### Controller
+- 시스템 감시자
+  - 시스템의 state 을 전체 관리한다.
+  - 예) Pod replica 개수 유지
+- 종류
+  - Replication Controller
+    - == Replica Set
+    - RC 는 Deprecated 되어 더이상 사용되지 않음. use ReplicaSet
+  - Deployment Controller
+  - StatefulSet Controller
+  - DaemonSet Controller
+  - Job Controller
+
+
+
+
+---
 
 #### 쿠버네티스 User
 * Workloads
