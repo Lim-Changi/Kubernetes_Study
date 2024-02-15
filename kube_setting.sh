@@ -44,11 +44,30 @@ kubectl delete deployments APP_NAME
 # start local tunnelling by minikube
 minikube service APP_NAME # Docker Desktop 에서 확인 가능
 
-# kubectl alias to kube
-alias kube=`kubectl`
+# kubectl alias to k
+alias k=`kubectl`
 
 
 # ReplicaSet Scaling
 kubectl replace -f replicaset.yml
 kubectl scale --replicas=REPLICA_NUM -f replicaset.yml
 kubectl scale --replicas=REPLICA_NUM rs/REPLICASET_NAME
+
+# Deployment Rolling Update
+## Change Image Version in YAML & apply
+# Check Rolling Update Progress
+kubectl describe deployment DEPLOYMENT_NAME
+kubectl rollout status deployment DEPLOYMENT_NAME
+
+# Deployment Rollback
+kubectl rollout undo deployment DEPLOYMENT_NAME
+
+#### ShortTerm
+# pod -> po
+# service -> svc
+# deployment -> deploy
+# namespace -> ns
+# configmap -> cm
+# ingress -> ing
+# replicaset -> rs
+

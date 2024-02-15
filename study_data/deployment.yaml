@@ -6,7 +6,7 @@ metadata:
     app: nginx
 spec:
   # strategy:
-  #   type: "RollingUpdate"
+  #   type: "Recreate"  ## default = RollingUpdate
   replicas: 2
   selector:
     matchLabels:
@@ -19,8 +19,8 @@ spec:
     spec:
       containers:
       - name: nginx
-        # changed 1.14.2 to 1.22.1
-        image: nginx:1.22.1
+        # changed 1.22.1 to 1.25.4
+        image: nginx:1.25.4
         ports:
         - containerPort: 80
 # ---
@@ -39,19 +39,19 @@ spec:
 #       # Optional field
 #       # By default and for convenience, the Kubernetes control plane will allocate a port from a range (default: 30000-32767)
 #       nodePort: 30007
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: nginx-cl-svc
-spec:
-  type: ClusterIP
-  selector:
-    app: nginx
-  ports:
-  - name: http
-    port: 80
-    targetPort: 80
+#---
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: nginx-cl-svc
+#spec:
+#  type: ClusterIP
+#  selector:
+#    app: nginx
+#  ports:
+#  - name: http
+#    port: 80
+#    targetPort: 80
 # ---
 # apiVersion: v1
 # kind: Service

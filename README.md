@@ -173,8 +173,26 @@ label 과 같은 형태로 Resource 에 넣어줄 수 있지만,
   - DaemonSet Controller
   - Job Controller
 
+---
+#### Deployment
+Deployment 는 ReplicaSet 을 관리하며, 다른 유용한 기능과 함께 Pod 에 대한 선언적 업데이트를 제공하는 상위 개념.
+ReplicaSet 과 비슷하지만, 구성하는 Pod 을 Update 할 때 용이하다는 장점이 있다
 
+Deployment > ReplicaSet > Pod  
 
+> 즉, 굳이 ReplicaSet & Pod 종류의 오브젝트 yaml 파일을 작성 하기보다는 
+> 하위로 ReplicaSet & Pod 내용을 모두 포함하는 Deployment 오브젝트 yaml 파일만 작성하면된다.
+
+- Deployment Strategy
+  - in YAML spec, ```strategy: type: "Recreate"```
+  - RollingUpdate = default
+  - Recreate
+  - Blue/Green 
+  - Canary 
+  - A/B 
+  - etc...
+
+- [K8s 공식문서](https://kubernetes.io/ko/docs/concepts/workloads/controllers/deployment/#%EB%94%94%ED%94%8C%EB%A1%9C%EC%9D%B4%EB%A8%BC%ED%8A%B8-%EC%83%9D%EC%84%B1)
 
 ---
 
