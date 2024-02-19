@@ -204,7 +204,16 @@ Deployment > ReplicaSet > Pod
 
 > Nginx, ELB 와 비슷한 역할
 
-
+---
+#### Cluster Network
+- Pod 간 통신?
+  - 모든 Pod 은 Unique IP Address 가 있어야함
+    - Pod 간 통신이 가능해야함
+    - IP Address (= NAT) 를 통해 통신 X
+  - **CNI (Container Network Interface) Plugin** 을 활용하여 통신!
+    - Pod 가 통신할 수 있는 Routing Table 을 제공
+    - ex) Calico, Flannel, Weave Net
+    - kublet 에서 Pod 를 만들 떄, CNI 에 요청을 보내 Routing Table 을 만든다 
 
 
 ---
