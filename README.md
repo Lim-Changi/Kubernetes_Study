@@ -195,6 +195,20 @@ Deployment > ReplicaSet > Pod
 - [K8s 공식문서](https://kubernetes.io/ko/docs/concepts/workloads/controllers/deployment/#%EB%94%94%ED%94%8C%EB%A1%9C%EC%9D%B4%EB%A8%BC%ED%8A%B8-%EC%83%9D%EC%84%B1)
 
 ---
+#### Kube Proxy
+- 각각의 Node 안에서 IP Table 을 만든다
+- 서비스 IP 주소를 Pod 에 맵핑한다
+- Load Balancing
+- Node Port Service
+- Health Check
+
+> Nginx, ELB 와 비슷한 역할
+
+
+
+
+---
+
 
 #### 쿠버네티스 User
 * Workloads

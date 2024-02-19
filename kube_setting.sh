@@ -11,6 +11,8 @@ minikube start
 
 # get all k8s pods
 kubectl get po -A
+# kube-system Namespace 에 K8s 를 구성하는 Resource 에 대한 정보를 확인할 수 있다
+# ex) kube-apiserver, kube-proxy, kube-controller, etc..
 
 # Deployment Creation & Exposure
 kubectl create deployment APP_NAME --image=DOCKER_HUB_IMAGE
@@ -24,6 +26,8 @@ kubectl expose deployment APP_NAME --type=NodePort --port=PORT_NUM
 
 # get default running pod
 kubectl get pod
+
+
 # describe pod
 kubectl describe pod/POD_NAME
 
