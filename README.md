@@ -245,7 +245,7 @@ Deployment > ReplicaSet > Pod
   - 부서 별로, 혹은 개발환경 별로 접근 가능한 자원들을 설정할 때 용이
   - AWS 자원을 구축할 때, Tag 와 비슷한 개념
 
-
+Namespace 특징
 - Isolation
   - 각 Namespace 는 각자의 Resource 를 가질 수 있으며, 서로 관여해서는 안된다
 - Resource Scoping
