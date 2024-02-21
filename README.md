@@ -217,6 +217,30 @@ Deployment > ReplicaSet > Pod
 
 
 ---
+#### Services
+- 같은 역할의 Pod (= Load-Balanced) 에게 클러스터 IP 주소와 DNS 를 주고, 통신을 가능케 한다
+- 서비스의 이름은 **같은 Namespace 안에서는 Unique** 해야한다
+
+서비스의 종류
+- NodePort
+  - Node 당 하나씩 배정
+  - Node 로 들어오는 외부 요청 처리
+    - NodePort -> Service Port -> Target Port (Pod)
+  - Default -> 30000 ~ 32767
+- ClusterIP
+  - 기본 Service 타입
+  - Cluster 내부 요청 처리
+  - ex) App ↔️ Cache, App ↔️ DB
+- LoadBalancer
+  - 하나의 서비스를 구성하는 각 Pod 에 Public IP 주소를 배정하고 외부 요청을 분산 처리
+- Ingress
+  - 대용량 요청 처리에 적합
+  - 특정 조건을 설정하여 요청이 들어올 때, 특정 서비스에 조건이 맞는 요청을 보낼 수 있다
+  - Proxy Controller
+    - API Gateway 와 비슷
+
+
+---
 
 
 #### 쿠버네티스 User
