@@ -239,6 +239,26 @@ Deployment > ReplicaSet > Pod
   - Proxy Controller
     - API Gateway 와 비슷
 
+---
+#### Namespace
+- 여러 클러스터에 걸쳐있는 가상 Layer
+로 Resource, object 등을 나누기 위함
+  - 부서 별로, 혹은 개발환경 별로 접근 가능한 자원들을 설정할 때 용이
+  - AWS 자원을 구축할 때, Tag 와 비슷한 개념
+
+- Isolation
+  - 각 Namespace 는 각자의 Resource 를 가질 수 있으며, 서로 관여해서는 안된다
+- Resource Scoping
+  - 다른 Namespace 에 있으면 같은 Name 을 가진 Resource 도 별개의 것으로 취급된다
+- Security & Access Control
+  - Role-Based Access Control (RBAC) 즉, 관리범위를 를 Namespace 단위로 설정할 수 있다 (= AWS IAM)
+- Resource Quotas
+  - Namespace 별로, 자원의 CPU, 메모리 등의 제한을 설정할 수 있다
+
+
+
+
+
 
 ---
 

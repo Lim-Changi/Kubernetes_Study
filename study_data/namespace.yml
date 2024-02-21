@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: study-namespace
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: study-resource-quota
+  namespace: study-namespace
+spec:
+  hard:
+    pods: <max-pods>
+    requests.cpu: <max-request-cpu>
+    requests.memory: <max-request-memory>
+    limits.cpu: <max-limit-cpu>
+    limits.memory: <max-limit-memory>

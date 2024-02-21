@@ -75,3 +75,14 @@ kubectl rollout undo deployment DEPLOYMENT_NAME
 # ingress -> ing
 # replicaset -> rs
 
+# get contexts
+kubectl config get-contexts
+
+# get current context
+kubectl config current-context
+
+# set namespace for certain context
+kubectl config set-context CONTEXT_NAME --namespace=NAMESPACE_NAME
+
+# list pod with Namespace
+kubectl get po --namespace=NAMESPACE_NAME
