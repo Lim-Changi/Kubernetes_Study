@@ -263,6 +263,18 @@ Namespace 특징
 다른 Namespace 의 Pod 간 통신은 DNS 를 통해서만 통신이 가능하다
 
 
+---
+#### 명령어 사용 방식
+- Imperative (명령형)
+  - in Terminal using Command ```kubectl```
+  - 빠르다
+  - 디버깅 및 Troubleshooting 에 용이
+- Declarative (선언적)
+  - YAML, JSON
+  - Infrastructure as Code (IaC) 
+  - 구조적이고 자동화되어 있다
+  - ex) Terraform, Ansible, Cloudformation
+
 
 
 
