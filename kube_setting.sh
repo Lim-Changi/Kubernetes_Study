@@ -86,3 +86,20 @@ kubectl config set-context CONTEXT_NAME --namespace=NAMESPACE_NAME
 
 # list pod with Namespace
 kubectl get po --namespace=NAMESPACE_NAME
+
+# connecting pods in same namespace
+# via IP Address
+kubectl describe po POD_2 # get POD_2 IP
+kubectl exec -it POD_1 -- /bin/bash
+# in POD_1 Terminal
+curl POD_2_IP # Success
+
+# connection pods in different namespace
+# via CoreDNS
+kubectl exec -it POD_1 --namespace=NAMESPACE_1 -- /bin/bash
+# in POD_1 Terminal
+# using Service
+curl SERVICE_2.NAMESPACE_2
+curl SERVICE_2.NAMESPACE_2.svc.CLUSTER_NAME
+# using IP
+curl POD_2_IP.NAMESPACE_2.pod.CLUSTER_NAME # IP 를 입력할 떄, "." 대신 "-" 로 바꾸어 입력해야한다

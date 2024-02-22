@@ -245,6 +245,8 @@ Deployment > ReplicaSet > Pod
   - 부서 별로, 혹은 개발환경 별로 접근 가능한 자원들을 설정할 때 용이
   - AWS 자원을 구축할 때, Tag 와 비슷한 개념
 
+> kubectl 명령어를 활용할때 따로 ```--namespace``` 옵션을 붙이지 않으면 default 로 처리된다
+
 Namespace 특징
 - Isolation
   - 각 Namespace 는 각자의 Resource 를 가질 수 있으며, 서로 관여해서는 안된다
@@ -255,6 +257,10 @@ Namespace 특징
 - Resource Quotas
   - Namespace 별로, 자원의 CPU, 메모리 등의 제한을 설정할 수 있다
 
+
+#### DNS
+같은 Namespace 안에서는 IP 나 서비스를 통해서 Pod 간 통신이 가능하지만, 
+다른 Namespace 의 Pod 간 통신은 DNS 를 통해서만 통신이 가능하다
 
 
 
