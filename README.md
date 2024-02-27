@@ -275,6 +275,26 @@ Namespace 특징
   - 구조적이고 자동화되어 있다
   - ex) Terraform, Ansible, Cloudformation
 
+---
+#### MSA
+마이크로 서비스 아키텍처(Microservices Architecture)는 하나의 큰 애플리케이션을 작은 단위의 서비스로 분할하는 아키텍처 패턴입니다. 각 서비스는 독립적으로 개발, 배포, 운영될 수 있으며, 서로 다른 기술 스택과 데이터베이스를 사용할 수 있습니다
+
+- MSA 의 장점
+  - 유연성: 각 서비스는 독립적으로 개발, 배포, 운영될 수 있으므로 전체 시스템이 유연하게 확장될 수 있습니다.
+  - 격리성: 각 서비스는 다른 서비스와 격리되어 있으므로, 오류가 발생해도 다른 서비스에 영향을 미치지 않습니다.
+  - 재사용성: 각 서비스는 독립적으로 개발되어 재사용이 가능합니다.
+  - 편리한 배포: 각 서비스는 독립적으로 배포될 수 있으므로, 전체 시스템의 배포가 더욱 편리합니다. 
+  - 기술 다양성: 각 서비스는 독립적으로 개발되어 다른 기술 스택과 데이터베이스를 사용할 수 있습니다.
+> 하지만, 마이크로 서비스 아키텍처를 구현하는 것은 단순한 작업이 아닙니다. 서비스 간 통신, 데이터 일관성 유지, 분산 트랜잭션 등 다양한 기술적 문제를 해결해야 합니다. 따라서, 마이크로 서비스 아키텍처를 구현하기 위해서는 적극적인 설계와 테스트, 모니터링 등의 작업이 필요합니다.
+
+#### Deploying Local App with Minikube
+1. Build a working app into an Docker image (+ DB if Necessary) 
+2. Test Image with Docker-Compose in Local
+3. Build & Push Image to your Docker Hub
+4. Apply K8s Deployment script that works with your Image
+5. Start App NodePort service with Minikube => ```minikube service SVC_NAME```
+6. Check in Local with Minikube URL
+
 
 
 
