@@ -94,7 +94,7 @@ kubectl exec -it POD_1 -- /bin/bash
 # in POD_1 Terminal
 curl POD_2_IP # Success
 
-# connection pods in different namespace
+# connecting pods in different namespace
 # via CoreDNS
 kubectl exec -it POD_1 --namespace=NAMESPACE_1 -- /bin/bash
 # in POD_1 Terminal
@@ -103,3 +103,14 @@ curl SERVICE_2.NAMESPACE_2
 curl SERVICE_2.NAMESPACE_2.svc.CLUSTER_NAME
 # using IP
 curl POD_2_IP.NAMESPACE_2.pod.CLUSTER_NAME # IP 를 입력할 떄, "." 대신 "-" 로 바꾸어 입력해야한다
+
+
+# Cronjob Logging
+kubectl get cronjob # Cronjob Resource List
+kubectl get job # Finished Job List
+
+# get Pod cronjob is running on
+kubectl get pod
+
+# Log
+kubectl logs CRONJOB_POD_NAME CRONJOB_NAME
