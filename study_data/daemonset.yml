@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: example-daemonset
+  name: study-daemonset
   labels:
-    app: example-app
+    app: study-app
 spec:
   selector:
     matchLabels:
-      name: example-pod
+      name: study-pod
   template:
     metadata:
       labels:
-        name: example-pod
+        name: study-pod
     spec:
       containers:
-      - name: example-container
+      - name: study-container
         image: nginx:latest

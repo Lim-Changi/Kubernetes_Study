@@ -306,6 +306,14 @@ Namespace 특징
   - Check Container is Running
   - if fails, restarts the container
 
+---
+#### DaemonSet
+- 각 Node Cluster 에 필수적으로 돌아가야하는 Process 를 설정해주는 Resource
+  - Node 마다 하나씩 자동으로 생성되고 삭제
+  - 시스템 단위의 작업들을 관리
+    - Log Collector, Monitor Agent, Network Plugin..
+  - Node 위주의 작업들을 구성할 때 용이
+
 
 
 ---
