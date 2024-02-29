@@ -295,6 +295,16 @@ Namespace 특징
 5. Start App NodePort service with Minikube => ```minikube service SVC_NAME```
 6. Check in Local with Minikube URL
 
+---
+#### Observability
+쿠버네티스 클러스터 내에서 발생하는 이벤트와 상태를 모니터링하고 분석하는 프로세스를 말합니다. Observability는 애플리케이션 및 인프라스트럭처의 문제를 신속하게 탐지하고 해결하는 데 도움이 되며, 쿠버네티스 클러스터를 안정적으로 운영하는 데 중요한 역할을 합니다.  
+=> HealthCheck
+- Readiness probe
+  - Check Container is Ready
+  - if fails, removes container from endpoint
+- Liveness probe
+  - Check Container is Running
+  - if fails, restarts the container
 
 
 

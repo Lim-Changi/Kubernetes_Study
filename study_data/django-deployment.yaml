@@ -43,23 +43,23 @@ spec:
           ports:
             - containerPort: 8000
           imagePullPolicy: Always
-#          readinessProbe:
-#            httpGet:
-#              path: /readiness
-#              port: 8000
-#            initialDelaySeconds: 5 # specifies the number of seconds to wait before performing the first readiness check
-#            periodSeconds: 10 # specifies the number of seconds to wait between subsequent checks.
-#            timeoutSeconds: 5 # specifies the amount of time to wait for a response from the container before considering the check as failed
-#            successThreshold: 1 # the number of successful readiness checks required before the container is considered ready
-#            failureThreshold: 3 # specifies the number of failed readiness checks allowed before the container is considered unhealthy
-#          livenessProbe:
-#            httpGet:
-#              path: /liveness
-#              port: 8000
-#            initialDelaySeconds: 5
-#            periodSeconds: 30
-#            timeoutSeconds: 10
-#            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /readiness
+              port: 8000
+            initialDelaySeconds: 5 # specifies the number of seconds to wait before performing the first readiness check
+            periodSeconds: 10 # specifies the number of seconds to wait between subsequent checks.
+            timeoutSeconds: 5 # specifies the amount of time to wait for a response from the container before considering the check as failed
+            successThreshold: 1 # the number of successful readiness checks required before the container is considered ready
+            failureThreshold: 3 # specifies the number of failed readiness checks allowed before the container is considered unhealthy
+          livenessProbe:
+            httpGet:
+              path: /liveness
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 30
+            timeoutSeconds: 10
+            failureThreshold: 3
 ---
 apiVersion: v1
 kind: Service
