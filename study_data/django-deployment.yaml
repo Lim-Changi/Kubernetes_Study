@@ -16,9 +16,9 @@ spec:
       containers:
         - name: django-app
           image: limchangi/django:0.0.1
-#          resources:
-#            requests:
-#              cpu: "100m"
+          resources:
+            requests:
+              cpu: "100m" # HPA 가 CPU metrics 을 확인하기 위해서는 앱에 cpu resource 를 세팅해주어야 함
 #          env:
 #            - name: USERNAME
 #              valueFrom:

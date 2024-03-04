@@ -114,3 +114,11 @@ kubectl get pod
 
 # Log
 kubectl logs CRONJOB_POD_NAME CRONJOB_NAME
+
+
+# Testing HPA
+# metrics-server 가 필수적으로 있어야 한다 // CPU 의 metrics 를 읽기 위함
+kubectl get pods -n kube-system | grep metrics-server # 아무것도 뜨지 않으면 없는 것 => metrics-server 을 따로 받아야 함
+# Set metrics-server in minikube
+minikube start --addons=metrics-server
+minikube addons enable metrics-server

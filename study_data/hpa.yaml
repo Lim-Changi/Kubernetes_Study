@@ -6,13 +6,13 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: django-app
-  minReplicas: 1
-  maxReplicas: 10
+    name: django-app # which deploy app to scale
+  minReplicas: 1 # 트래픽이 적을 떄는 최소 하나의 Pod 개수 유지
+  maxReplicas: 10 # 트래픽이 많을 떄는 최대 10개의 Pod 까지 늘리도록 세팅
   metrics:
   - type: Resource
     resource:
       name: cpu
       target:
         type: Utilization
-        averageUtilization: 50
+        averageUtilization: 50 # CPU 평균 사용량이 50% 를 유지하기 위한 Pod 의 개수를 유지한다
