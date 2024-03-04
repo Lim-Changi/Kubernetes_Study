@@ -122,3 +122,10 @@ kubectl get pods -n kube-system | grep metrics-server # 아무것도 뜨지 않�
 # Set metrics-server in minikube
 minikube start --addons=metrics-server
 minikube addons enable metrics-server
+
+# Applying Metrics Server
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+# Logging with Metrics Server
+kubectl top node
+kubectl top pod
+kubectl logs POD_NAME
