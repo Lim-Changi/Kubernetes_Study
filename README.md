@@ -352,7 +352,26 @@ HPA는 CPU, 메모리, 커스텀 지표 등 다양한 지표를 기반으로 Pod
 
 > 많은 회사에선 Splunk Tool 을 사용한다 [[Link]](https://www.splunk.com/ko_kr)
 ---
+#### ConfigMap
+- 애플리케이션의 설정 정보를 저장하는 데 사용  
+- Key Value pair 로 구성된 데이터를 포함할 수 있다  
+- 애플리케이션의 환경 변수, 설정 파일 등을 구성하고 관리하는 데 사용
+- Pod 내부의 컨테이너에서 마운트하여 사용할 수 있다
+  - ConfigMap YAML 파일에서 Key Value 를 저장하고, Deployment YAML 에선 ConfigMap 과 Key 를 통해 읽어오는 방식 
 
+#### Secret
+- ConfigMap 과 비슷하지만 중요한 정보를 관리할 때 사용
+- 암호화된 Key Value pair 로 구성되어 있으며, 데이터를 디코딩하여 애플리케이션에서 사용이 가능
+- DB 계정, API Key, TLS 등에 사용
+- Pod 내부의 컨테이너에서 마운트하여 사용할 수 있다
+  - Secret YAML 파일에서 Key Value 를 저장하고, Deployment YAML 에선 Secret 과 Key 를 통해 읽어오는 방식
+  - Secret 에 암호화(Encoded) 된 Value 를 넣으면, Pod 내부에선 디코딩된 Value 값이 저장된다  
+- Type
+  - Opaque: 기본 Type, Encoded 임시 보안값에 사용
+  - kubernetes.io/tls: TLS 인증서와 Private Key 에 사용
+  - kubernetes.io/dockerconfigjson: Docker Registry Credential 를 JSON 포맷으로 저장할떄 사용
+  - kubernetes.io/service-account-token: 서비스 Account 마다 자동으로 생성되며, 계정의 토큰 및 Metadata 를 저장한다
+---
 
 #### 쿠버네티스 User
 * Workloads

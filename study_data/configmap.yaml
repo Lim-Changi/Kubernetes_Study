@@ -3,6 +3,6 @@ kind: ConfigMap
 metadata:
   name: django-app-configmap
 data:
-  ENV: test
-  PUB_TOPIC: codemke
-  CON_TOPIC: codemke
+  ENV: study
+  PUB_TOPIC: pub
+  CON_TOPIC: con

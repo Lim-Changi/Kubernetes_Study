@@ -129,3 +129,16 @@ kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/late
 kubectl top node
 kubectl top pod
 kubectl logs POD_NAME
+
+
+# Secret Encoding via base 64
+echo -n <secret_value> | base64 # return encoded value
+# Secret Decoding
+echo <encoded_secret_value> | base64 -d
+
+# Env Check
+kubectl describe deployment DEPLOYMENT_NAME
+# Check Value
+kubectl exec -it POD_NAME -- /bin/bash
+# inside pod container
+echo $ENV_KEY # returns value

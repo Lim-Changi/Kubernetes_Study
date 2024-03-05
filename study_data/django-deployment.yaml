@@ -19,27 +19,28 @@ spec:
           resources:
             requests:
               cpu: "100m" # HPA 가 CPU metrics 을 확인하기 위해서는 앱에 cpu resource 를 세팅해주어야 함
-#          env:
-#            - name: USERNAME
-#              valueFrom:
-#                secretKeyRef:
-#                  name: django-app-secret
-#                  key: username
-#            - name: ENV
-#              valueFrom:
-#                configMapKeyRef:
-#                  name: django-app-configmap
-#                  key: ENV
-#            - name: PUB_TOPIC
-#              valueFrom:
-#                configMapKeyRef:
-#                  name: django-app-configmap
-#                  key: PUB_TOPIC
-#            - name: CON_TOPIC
-#              valueFrom:
-#                configMapKeyRef:
-#                  name: django-app-configmap
-#                  key: CON_TOPIC
+          env:
+            - name: ENV
+              valueFrom:
+                configMapKeyRef:
+                  name: django-app-configmap
+                  key: ENV # study
+            - name: PUB_TOPIC
+              valueFrom:
+                configMapKeyRef:
+                  name: django-app-configmap
+                  key: PUB_TOPIC # pub
+            - name: CON_TOPIC
+              valueFrom:
+                configMapKeyRef:
+                  name: django-app-configmap
+                  key: CON_TOPIC # con
+            - name: USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: django-app-secret
+                  key: username # encoded "username"
+
           ports:
             - containerPort: 8000
           imagePullPolicy: Always
