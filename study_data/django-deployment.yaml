@@ -40,6 +40,8 @@ spec:
                 secretKeyRef:
                   name: django-app-secret
                   key: username # encoded "username"
+            - name: ENV_DEV
+              value: develop # putting ENV directly without configMap nor secret -> KEY: ENV_DEV, VAL: develop
 
           ports:
             - containerPort: 8000
