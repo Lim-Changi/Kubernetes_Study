@@ -12,7 +12,7 @@ spec:
       labels:
         app: django-app
     spec:
-#      serviceAccountName: jarvis-svc-acct
+      serviceAccountName: changi-svc-acc
       containers:
         - name: django-app
           image: limchangi/django:0.0.1

@@ -372,6 +372,20 @@ HPA는 CPU, 메모리, 커스텀 지표 등 다양한 지표를 기반으로 Pod
   - kubernetes.io/dockerconfigjson: Docker Registry Credential 를 JSON 포맷으로 저장할떄 사용
   - kubernetes.io/service-account-token: 서비스 Account 마다 자동으로 생성되며, 계정의 토큰 및 Metadata 를 저장한다
 ---
+#### Service Account & Role (RBAC)
+쿠버네티스의 Service Account 와 RBAC(Role-Based Access Control)은 쿠버네티스 클러스터 내에서 보안을 관리하는 데 사용되는 리소스   
+![service_account_role.png](./study_data/slides/service_account_role.png)
+> IAM 사용자 그룹 = Role, IAM 사용자 = Service Account
+- Role
+  - 권한 목록
+- ServiceAccount
+  - Cluster 에 접근하기 위한 계정
+- RoleBinding
+  - ServiceAccount 와 Role 을 엮어주는, 즉 ServiceAccount 에게 권한을 부여하는 Resource 
+
+
+---
+
 
 #### 쿠버네티스 User
 * Workloads
