@@ -142,3 +142,17 @@ kubectl describe deployment DEPLOYMENT_NAME
 kubectl exec -it POD_NAME -- /bin/bash
 # inside pod container
 echo $ENV_KEY # returns value
+
+
+# Setting and Testing PV & PVC for Pod
+kubectl apply -f pv.yml
+kubectl apply -f pvc.yml
+kubectl exec -it POD_NAME -- /bin/bash # Pod Attached with PVC
+# inside pod container
+cd PV_Mount_Directory
+echo "hello world" > hello.txt # this will make same file for PV
+# with Minikube
+minikube ssh
+# inside minikube
+cd PV_Directory
+cat hello.txt # check if hello.txt exists

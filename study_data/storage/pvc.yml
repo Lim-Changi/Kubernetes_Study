@@ -3,8 +3,9 @@ kind: PersistentVolumeClaim
 metadata:
   name: my-pvc
 spec:
+#  volumeName: my-pv # 굳이 지정하지 않아도 적잘한 pv 의 claim 으로 bound 된다 (by K8s Control Plane) pv 를 특정하려면 생성한 pv name 을 붙이면 됨
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 10Mi
+      storage: 10Mi # 연결한 PV 에서 얼만큼의 storage 를 사용할 것인지

@@ -385,7 +385,28 @@ HPA는 CPU, 메모리, 커스텀 지표 등 다양한 지표를 기반으로 Pod
 
 
 ---
+#### Persistent Volumes (PVs) & Persistent Volume Claims (PVCs)
+Pod Storage Pool 개념  -> Pod 이 없어져도 데이터를 보존 (Persistence Storage)
 
+1. Pod 에 Location 설정
+2. PV 에 해당 Location 연결
+   * PVC 가 매개체가 됨
+3. Pod 에서 지정한 Location 에 데이터를 저장하면 Storage 개념의 PV 에 해당 데이터가 같이 저장
+
+- 하나의 PV 에는 여러 PVC 가 존재할 수 있음
+- 하나의 PVC 는 하나의 Pod 과 연결
+  - Pod 가 삭제되면 PVC 도 함께 삭제된다
+- PVC 를 생성할 때, 조건에 맞는 PV 가 없으면 자동으로 PV 를 생성한다
+
+> PV 를 생성 후, PVC 생성파일에서 PV Name 을 따로 지정하지 않으면, K8s Control Plane 에서 존재하는 PV 중 적절한 것의 Claim 으로 Bound (배정) 시킨다
+
+- PV Access Mode
+  1. ReadWriteOnce: 하나의 Pod 만 PV 에 연결할 수 있고, Read Write 이 모두 가능 (클러스터 DB 개념)
+  2. ReadOnlyMany: 여러 Pod 가 PV 에 연결할 수 있지만, Read 만 가능
+     - 예를 들어, 하나의 static data 를 여러 Pod 에 전달 하는 상황에 쓰임
+  3. ReadWriteMany: 여러 Pod 가 PV 에 접근하여 Read Write 이 모두 가능
+
+---
 
 #### 쿠버네티스 User
 * Workloads

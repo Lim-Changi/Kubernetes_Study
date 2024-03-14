@@ -10,8 +10,8 @@ spec:
     args: ["infinity"]
     volumeMounts:
     - name: my-volume
-      mountPath: /mnt/data/
+      mountPath: /mnt/data/ # PV 와 연동할 Pod Directory 지정 (생성)
   volumes:
-  - name: my-volume
+  - name: my-volume  # 위의 volumeMounts 의 name 과 일치해야함
     persistentVolumeClaim:
-      claimName: my-pvc
+      claimName: my-pvc # 생성한 pvc 를 claimName 을 통해 붙여준다

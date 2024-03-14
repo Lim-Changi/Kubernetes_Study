@@ -4,11 +4,11 @@ metadata:
   name: my-pv
 spec:
   capacity:
-    storage: 100Mi
+    storage: 100Mi # PV 의 용량
   volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Retain # Delete or Recycle
-  storageClassName: standard # or ssd, aws-ebs, gp2 and etc 
+  persistentVolumeReclaimPolicy: Retain # Delete or Recycle -> Pod 이 없어졌을 떄, 데이터를 보존할 것인지 삭제할 것인지
+  storageClassName: standard # or ssd, aws-ebs, gp2 and etc 사용하는 PV Resource 에 따라 상이
   hostPath:
-    path: /data/my-pv/
+    path: /data/my-pv/ # Local 에선 Minikube Cluster 로 돌리고 있기에, Minikube 내부에 /data/my-pv/ 디렉토리가 생성된다
