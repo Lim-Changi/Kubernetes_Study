@@ -10,16 +10,16 @@ spec:
     args: ["infinity"]
     volumeMounts:
     - name: shared-data
-      mountPath: /app/shared
+      mountPath: /app/shared # 2. 후에 Main Container 가 뜨면서 Bound 된 Volume 에 생성되어 있는 init-file 확인가능
 
-  initContainers:
+  initContainers: # 우선적으로 시작되는 Container
   - name: init-container
     image: busybox
-    command: ['sh', '-c', 'echo Shared data from Init Container > /shared-data/init-file && sleep 5']
+    command: ['sh', '-c', 'echo Shared data from Init Container > /shared-data/init-file && sleep 5'] # InitContainer 가 생성되고 5초 대기 -> Main Pod 가 InitContainer 후에 뜨는 것을 확인하기 위함
     volumeMounts:
     - name: shared-data
-      mountPath: /shared-data
+      mountPath: /shared-data # 1. InitContainer 에서 Volume 에 우선적으로 init-file 을 생성
 
   volumes:
   - name: shared-data
-    emptyDir: {}
+    emptyDir: {} # 0. 임시로 사용할 비어있는 디렉토리 Volume Setup

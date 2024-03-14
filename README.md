@@ -407,7 +407,20 @@ Pod Storage Pool 개념  -> Pod 이 없어져도 데이터를 보존 (Persistenc
   3. ReadWriteMany: 여러 Pod 가 PV 에 접근하여 Read Write 이 모두 가능
 
 ---
+### InitContainer
+Main Container 가 시작하기 전에, Initializing Task 혹은 Setup Action 을 수행하기 위한 특별한 타입의 Container  
+ex) DB Schema Migration, 외부 서비스 연동, etc..
 
+- InitContainer Pod 생성 Status
+  1. Init:0/1
+  2. PodInitializing
+  3. Running
+
+
+
+
+
+---
 #### 쿠버네티스 User
 * Workloads
   * Pod
