@@ -416,6 +416,13 @@ ex) DB Schema Migration, 외부 서비스 연동, etc..
   2. PodInitializing
   3. Running
 
+---
+### AWS EKS
+- Setup [[공식문서]](https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/getting-started.html) -> Hard (role, network etc)
+  - eksctl 활용 [[링크]](https://ekstcl.io)
+    - ```brew install eksctl```
+    - EKS 환경을 YAML 파일을 통해 구성할 수 있다
+
 
 
 

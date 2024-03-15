@@ -156,3 +156,9 @@ minikube ssh
 # inside minikube
 cd PV_Directory
 cat hello.txt # check if hello.txt exists
+
+
+# Setup EKS with eksctl
+eksctl create cluster -f EKS_SETUP_FILE.yml # takes long time (about 30m?)
+# Delete EKS with eksctl
+eksctl delete cluster CLUSTER_NAME # takes long time
