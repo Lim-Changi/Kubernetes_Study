@@ -157,6 +157,12 @@ minikube ssh
 cd PV_Directory
 cat hello.txt # check if hello.txt exists
 
+# Kustomization
+kustomize build OVERLAYS_ENV_PATH # Kustomization configuration 생성
+kubectl apply -k OVERLAYS_ENV_PATH # -f 대신 -k 로 만들어둔 kustomization configuration 을 적용한다
+
+
+
 
 # Setup EKS with eksctl
 eksctl create cluster -f EKS_SETUP_FILE.yml # takes long time (about 30m?)

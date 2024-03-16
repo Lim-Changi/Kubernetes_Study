@@ -1,6 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: nginx-deployment # base deployment.yaml 의 Deployment metadata name 과 일치해야한다
 spec:
   replicas: 2

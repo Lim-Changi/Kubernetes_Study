@@ -417,6 +417,30 @@ ex) DB Schema Migration, 외부 서비스 연동, etc..
   3. Running
 
 ---
+### Kustomize
+오픈소스 쿠버네티스 관리 툴
+
+- "overlays" 폴더 안에 쿠버네티스 배포 환경을 구축
+- base
+  - deployment.yaml
+  - kustomization.yaml
+  - service.yaml
+- overlays
+  - dev
+    - deployment-patch.yaml
+    - kustomization.yaml
+  - prod
+    - deployment-patch.yaml
+    - kustomization.yaml
+
+- Common value 는 base 폴더에
+- naming convention : lowercase-hypen.yaml
+- 위 디렉토리 구조를 지키도록 하자
+
+
+
+
+---
 ### AWS EKS
 - Setup [[공식문서]](https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/getting-started.html) -> Hard (role, network etc)
   - eksctl 활용 [[링크]](https://ekstcl.io)
