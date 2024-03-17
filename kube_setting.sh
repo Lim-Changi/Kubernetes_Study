@@ -143,6 +143,12 @@ kubectl exec -it POD_NAME -- /bin/bash
 # inside pod container
 echo $ENV_KEY # returns value
 
+# Generate ConfigMap Or Secret directly into K8s control plane from .env
+kubectl create secret generic SECRET_NAME --from-file ENV_FILE_PATH
+
+
+
+
 
 # Setting and Testing PV & PVC for Pod
 kubectl apply -f pv.yml
