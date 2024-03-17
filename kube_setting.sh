@@ -144,7 +144,7 @@ kubectl exec -it POD_NAME -- /bin/bash
 echo $ENV_KEY # returns value
 
 # Generate ConfigMap Or Secret directly into K8s control plane from .env
-kubectl create secret generic SECRET_NAME --from-file ENV_FILE_PATH
+kubectl create secret generic SECRET_NAME --from-env-file=ENV_FILE_PATH
 
 
 
